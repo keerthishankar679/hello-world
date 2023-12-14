@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_keerthishankar679_hello_world_1702549747472-pr-trigger-input-set
+  identifier: Build_keerthishankar679_hello_world_1702549747472prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: default_project
+  pipeline:
+    identifier: Build_keerthishankar679_hello_world_1702549747472
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
