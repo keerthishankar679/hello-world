@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_keerthishankar679_hello_world_1702548894677-push-trigger-input-set
+  identifier: Build_keerthishankar679_hello_world_1702548894677pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: default_project
+  pipeline:
+    identifier: Build_keerthishankar679_hello_world_1702548894677
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
