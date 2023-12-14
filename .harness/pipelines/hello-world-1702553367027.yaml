@@ -24,6 +24,22 @@ pipeline:
                   spec:
                     shell: Bash
                     command: echo "hii"
+              - step:
+                  type: RunTests
+                  name: RunTests_1
+                  identifier: RunTests_1
+                  spec:
+                    language: Java
+                    buildTool: Maven
+                    args: test
+                    packages: io.harness
+                    runOnlySelectedTests: true
+                    postCommand: mvn package -DskipTests
+                    reports:
+                      type: JUnit
+                      spec:
+                        paths:
+                          - target/surefire-reports/*.xml
           platform:
             os: Linux
             arch: Amd64
