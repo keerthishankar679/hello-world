@@ -51,4 +51,4 @@ pipeline:
                     connectorRef: account.harnessImage
                     repo: keerthishankar679 / hello-world
                     tags:
-                      - hello-world
+                      - <+pipeline.sequenceId>
