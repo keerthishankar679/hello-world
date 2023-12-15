@@ -43,3 +43,12 @@ pipeline:
                       spec:
                         paths:
                           - target/surefire-reports/*.xml
+              - step:
+                  type: BuildAndPushDockerRegistry
+                  name: BuildAndPushDockerRegistry_1
+                  identifier: BuildAndPushDockerRegistry_1
+                  spec:
+                    connectorRef: account.harnessImage
+                    repo: keerthishankar679 / hello-world
+                    tags:
+                      - hello-world
