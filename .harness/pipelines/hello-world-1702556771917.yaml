@@ -6,28 +6,40 @@ pipeline:
   properties:
     ci:
       codebase:
-        build: <+input>
         connectorRef: account.Github_OAuth_1702554102982
         repoName: keerthishankar679/hello-world
+        build: <+input>
   stages:
     - stage:
-        identifier: build
-        name: build
+        name: Build
+        identifier: Build
+        description: ""
+        type: CI
         spec:
+          caching:
+            enabled: true
           cloneCodebase: true
-          execution:
-            steps:
-              - step:
-                  type: Run
-                  name: Run_1
-                  identifier: Run_1
-                  spec:
-                    shell: Bash
-                    command: echo "hi"
           platform:
             os: Linux
             arch: Amd64
           runtime:
             type: Cloud
             spec: {}
-        type: CI
+          execution:
+            steps:
+              - step:
+                  type: RunTests
+                  name: RunTests_1
+                  identifier: RunTests_1
+                  spec:
+                    language: Java
+                    buildTool: Maven
+                    args: test
+                    packages: io.harness
+                    runOnlySelectedTests: true
+                    postCommand: mvn package -DskipTests
+                    reports:
+                      type: JUnit
+                      spec:
+                        paths:
+                          - target/surefire-reports/*.xml
